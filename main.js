@@ -17,8 +17,8 @@ class HitPointSpread extends HTMLElement {
                     --base-font-size: 1rem;
                     --base-text-color: var(--color-black);
                     --base-focus-color: var(--color-blue);
-                    --input-padding-block: 0.25rem;
-                    --input-padding-inline: 0.25rem;
+                    --input-padding-block: 0.25ch;
+                    --input-padding-inline: 0.5ch;
                     --input-border-color: var(--color-black);
                     --input-border-block-start: 1px solid transparent;
                     --input-border-block-end: 1px solid var(--input-border-color, black);
@@ -28,8 +28,8 @@ class HitPointSpread extends HTMLElement {
                     --input-focus-outline: 1px solid var(--base-focus-color);
                     --input-focus-outline-offset: -1px;
                     --select-font-size: var(--base-font-size);
-                    --select-padding-block: 0.25rem;
-                    --select-padding-inline: 0.25rem;
+                    --select-padding-block: 0.25ch;
+                    --select-padding-inline: 0.5ch;
                     --select-border-color: var(--color-black);
                     --select-background-color: none;
                     --select-border-radius: 0;
@@ -39,8 +39,8 @@ class HitPointSpread extends HTMLElement {
                     --button-border: none;
                     --button-background-color: var(--color-black, black);
                     --button-color: var(--color-white, white);
-                    --button-padding-block: 0.25rem;
-                    --button-padding-inline: 0.25rem;
+                    --button-padding-block: 0.5ch;
+                    --button-padding-inline: 1ch;
                     --button-border-radius: 0;
                     --button-focus-outline: 1px solid var(--base-focus-color);
                     --button-focus-outline-offset: 0;
@@ -131,11 +131,11 @@ class HitPointSpread extends HTMLElement {
                 }
 
                 input[name="dice-count"] {
-                    width: 1.5rem;
+                    width: 2ch;
                     text-align: right;
                 }
                 input[name="modifier"] {
-                    width: 2.5rem;
+                    width: 3ch;
                     text-align: left;
                 }
                 table#result {
@@ -144,26 +144,16 @@ class HitPointSpread extends HTMLElement {
                 }
                 table#result th, 
                 table#result td {
-                    border-inline: 1px solid var(--color-black);
+                    border: 1px solid var(--color-black);
                     padding: 0.25rem 1ch;
                     text-align: center;
-                }
-                table#result th:first-child, 
-                table#result th:last-child,
-                table#result td:first-child, 
-                table#result td:last-child {
-                    border-inline-start: none;
-                    border-inline-end: none;
-                }
-                table#result thead th {
-                    border-bottom: 1px solid var(--color-black);
                 }
                 table#result tbody tr:nth-child(even) th,
                 table#result tbody tr:nth-child(even) td {
                     background-color: var(--table-stripe-color);
                 }
-                table#result tbody td {
-                    width: 7ch; /* Magic number */
+                table#result thead tr:last-child th {
+                    min-width: 7ch; /* Magic number */
                 }
 
             </style>
@@ -207,8 +197,12 @@ class HitPointSpread extends HTMLElement {
                 </form>
 
                 <slot name="result-table">
-                    <table id="result" style="display: none;">
+                    <table id="result">
                         <thead>
+                            <tr>
+                                <th></th>
+                                <th colspan="5">Hit Points</th>
+                            </tr>
                             <tr>
                                 <th>Hit Dice Expression</th>
                                 <th>Minimum</th>
@@ -287,7 +281,6 @@ class HitPointSpread extends HTMLElement {
         const table = this.shadowRoot.querySelector('table#result')
 
         table.querySelector('tbody').insertAdjacentHTML('beforeend', resultsHistoryEntry)
-        table.style.display = 'revert'
     }
 
 
