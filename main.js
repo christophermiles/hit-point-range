@@ -1,7 +1,6 @@
 class HitPointSpread extends HTMLElement {
     constructor() {
         super()
-
         this.attachShadow({ mode: 'open' })
 
         // region Template
@@ -30,12 +29,12 @@ class HitPointSpread extends HTMLElement {
             <div>
                 <form id="hitpoint-form">
                     <slot name="form-content">
-                        <label for="dice-number" aria-label="Number of dice">
+                        <label for="dice-count" aria-label="Number of dice">
                             <input
                                 type="text"
                                 inputmode="numeric"
-                                id="dice-number"
-                                name="dice-number"
+                                id="dice-count"
+                                name="dice-count"
                                 placeholder="1"
                                 required
                             >
@@ -43,7 +42,7 @@ class HitPointSpread extends HTMLElement {
                         
                         <label for="dice-type" aria-label="Dice type">
                             d
-                            <select name="dice-type" required>
+                            <select id="dice-type" name="dice-type" required>
                                 <option value="4">4</option>
                                 <option value="6">6</option>
                                 <option value="8">8</option>
@@ -53,12 +52,12 @@ class HitPointSpread extends HTMLElement {
                             </select>
                         </label>
                         
-                        <label for="bonus" aria-label="Modifier">
+                        <label for="modifier" aria-label="Modifier">
                             <input
                                 type="text"
                                 inputmode="numeric"
-                                id="bonus"
-                                name="bonus"
+                                id="modifier"
+                                name="modifier"
                                 placeholder="+0"
                             >
                         </label>
@@ -97,6 +96,83 @@ class HitPointSpread extends HTMLElement {
 
         this.shadowRoot.appendChild(template.content.cloneNode(true))
         // endregion
+    }
+
+    connectedCallback() {
+        // Attach the form submit event listener here
+        this.shadowRoot.querySelector('#hitpoint-form').addEventListener('submit', this._onSubmit.bind(this))
+    }
+
+    _onSubmit(event) {
+        event.preventDefault()
+
+        const diceCountString = this.shadowRoot.querySelector('#dice-count').value
+        const dieTypeString = this.shadowRoot.querySelector('#dice-type').value
+        const modifierString = this.shadowRoot.querySelector('#modifier').value
+
+        if (!diceCountString || !dieTypeString) {
+            return
+        }
+
+        this.updateResults(this.calculateResults(diceCountString, dieTypeString, modifierString))
+    }
+
+    updateResults(results) {
+        this.shadowRoot.getElementById('min-hp').textContent = results.min
+        this.shadowRoot.getElementById('weak-hp').textContent = results.weak
+        this.shadowRoot.getElementById('avg-hp').textContent = results.average
+        this.shadowRoot.getElementById('strong-hp').textContent = results.strong
+        this.shadowRoot.getElementById('max-hp').textContent = results.max
+    }
+
+    averageDieResults = {
+        4: 2.5,
+        6: 3.5,
+        8: 4.5,
+        10: 5.5,
+        12: 6.5,
+        20: 10.5
+    }
+
+    getAverageDieResult(dieTypeNumber) {
+        if (isNaN(dieTypeNumber)) {
+            throw new TypeError('Die type must be a number')
+        }
+
+        if (!this.averageDieResults.hasOwnProperty(dieTypeNumber)) {
+            throw new TypeError(`Unknown die type ${dieTypeNumber}`)
+        }
+
+        return this.averageDieResults[dieTypeNumber]
+    }
+
+    calculateMiddle(a, b) {
+        return Math.floor((a + b) / 2)
+    }
+
+    calculateResults(diceCountString, dieTypeString, modifierString = '0') {
+        const diceCountNumber = parseInt(diceCountString, 10)
+        const dieTypeNumber = parseInt(dieTypeString, 10)
+        const modifierNumber = parseInt(modifierString, 10) || 0
+
+        if (isNaN(diceCountNumber) || isNaN(dieTypeNumber) || diceCountNumber <= 0 || dieTypeNumber <= 0) {
+            throw new Error('Die type and number of dice must be positive integers.')
+        }
+
+        const minimum = diceCountNumber + modifierNumber
+        const average = Math.floor(diceCountNumber * this.getAverageDieResult(dieTypeNumber)) + modifierNumber
+        const maximum = (diceCountNumber * dieTypeNumber) + modifierNumber
+
+        const weak = this.calculateMiddle(minimum, average)
+        const strong = this.calculateMiddle(average, maximum)
+
+        return {
+            minimum,
+            weak,
+            average,
+            strong,
+            maximum
+        }
     }
 }
 
