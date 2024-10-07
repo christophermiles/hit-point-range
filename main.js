@@ -159,7 +159,7 @@ class HitPointSpread extends HTMLElement {
             </style>
             
             <div id="container">
-                <form id="hitpoint-form">
+                <form id="hitpoint-form" part="form">
                     <slot name="form-content">
                         <fieldset>
                             <div>
@@ -170,11 +170,19 @@ class HitPointSpread extends HTMLElement {
                                 </legend>
                 
                                 <label for="dice-count" aria-label="Number of dice">
-                                    <input type="text" inputmode="numeric" id="dice-count" name="dice-count" placeholder="1" required>
+                                    <input 
+                                        type="text"
+                                        inputmode="numeric"
+                                        id="dice-count"
+                                        name="dice-count"
+                                        placeholder="1"
+                                        required
+                                        part="dice-count-input"
+                                    >
                                 </label>
                 
                                 <label for="die-type" aria-label="Dice type">
-                                    <select id="die-type" name="die-type" required>
+                                    <select id="die-type" name="die-type" required part="die-type-select">
                                         <option value="4">d4</option>
                                         <option value="6">d6</option>
                                         <option value="8">d8</option>
@@ -185,12 +193,19 @@ class HitPointSpread extends HTMLElement {
                                 </label>
                 
                                 <label for="modifier" aria-label="Modifier">
-                                    <input type="text" inputmode="numeric" id="modifier" name="modifier" placeholder="+0">
+                                    <input 
+                                        type="text"
+                                        inputmode="numeric"
+                                        id="modifier"
+                                        name="modifier"
+                                        placeholder="+0"
+                                        part="modifier-input"
+                                    >
                                 </label>
                             </div>
                         </fieldset>
                         
-                        <button type="submit" tabindex="0">
+                        <button type="submit" tabindex="0" part="submit-button">
                             Generate
                         </button>
                     </slot>
