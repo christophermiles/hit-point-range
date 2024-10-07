@@ -308,18 +308,14 @@ class HitPointSpread extends HTMLElement {
         }
 
         const minimum = calculateMinimum()
-
         const average = Math.floor(diceCountNumber * getDieAverage()) + modifierNumber
         const maximum = (diceCountNumber * dieTypeNumber) + modifierNumber
 
-        const weak = calculateMiddle(minimum, average)
-        const strong = calculateMiddle(average, maximum)
-
         return {
             minimum,
-            weak,
+            weak: calculateMiddle(minimum, average),
             average,
-            strong,
+            strong: calculateMiddle(average, maximum),
             maximum
         }
     }
