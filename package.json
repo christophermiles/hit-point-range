@@ -1,0 +1,22 @@
+{
+  "name": "hit-point-spread",
+  "version": "1.0.0",
+  "description": "A lightweight Web Component that Dungeon Masters can use to calculate key hit point values from a Hit Dice expression for Dungeons & Dragons creatures. Outputs include minimum, weak, average, strong, and maximum hit points to give a full spread of possible outcomes.",
+  "main": "main.js",
+  "scripts": {
+    "serve": "npx http-server -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christophermiles/hit-point-spread.git"
+  },
+  "keywords": [
+    "d&d"
+  ],
+  "author": "Christopher Miles <mail@christophermiles.com.au> (http://christophermiles.com.au)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christophermiles/hit-point-spread/issues"
+  },
+  "homepage": "https://github.com/christophermiles/hit-point-spread#readme"
+}
