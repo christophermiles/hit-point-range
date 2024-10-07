@@ -1,4 +1,6 @@
 class HitPointSpread extends HTMLElement {
+    DEFAULT_HIT_DIE_TYPE = '8'
+
     constructor() {
         super()
         this.attachShadow({ mode: 'open' })
@@ -8,9 +10,9 @@ class HitPointSpread extends HTMLElement {
         template.innerHTML = `
             <style>
                 :host {
-                    --color-grey: grey;
-                    --color-blue: blue;
-                    --color-black: black;
+                    --color-grey: #6B7280;
+                    --color-blue: #2563EB;
+                    --color-black: #171717;
                     --color-white: white;
                     --base-font-size: 1rem;
                     --base-text-color: var(--color-black);
@@ -41,7 +43,8 @@ class HitPointSpread extends HTMLElement {
                     --button-padding-inline: 0.25rem;
                     --button-border-radius: 0;
                     --button-focus-outline: 1px solid var(--base-focus-color);
-                    --button-focus-outline-offset: 0px;
+                    --button-focus-outline-offset: 0;
+                    --table-stripe-color: #F5F5F4;
                 }
                 
                 input, select, button {
@@ -51,45 +54,45 @@ class HitPointSpread extends HTMLElement {
                 }
                 
                 input {
-                    padding-block: var(--input-padding-block, unset);
-                    padding-inline: var(--input-padding-inline, unset);
-                    border-block-start: var(--input-border-block-start, unset);
-                    border-block-end: var(--input-border-block-end, unset);
-                    border-inline-start: var(--input-border-inline-start, unset);
-                    border-inline-end: var(--input-border-inline-end, unset);
+                    padding-block: var(--input-padding-block);
+                    padding-inline: var(--input-padding-inline);
+                    border-block-start: var(--input-border-block-start);
+                    border-block-end: var(--input-border-block-end);
+                    border-inline-start: var(--input-border-inline-start);
+                    border-inline-end: var(--input-border-inline-end);
                 }
 
                 select {
                     cursor: pointer;
-                    padding-block: var(--select-padding-block, unset);
-                    padding-inline: var(--select-padding-inline, unset);
-                    border: var(--select-border, unset);
-                    background-color: var(--select-background-color, unset);
-                    border-radius: var(--select-border-radius, unset);
+                    padding-block: var(--select-padding-block);
+                    padding-inline: var(--select-padding-inline);
+                    border: var(--select-border);
+                    background-color: var(--select-background-color);
+                    border-radius: var(--select-border-radius);
                 }
                 
                 button {
-                    padding-block: var(--button-padding-block, unset);
-                    padding-inline: var(--button-padding-inline, unset);
-                    background-color: var(--button-background-color, unset);
-                    color: var(--button-color, unset);
-                    border: var(--button-border, unset);
-                    border-radius: var(--button-border-radius, unset);
+                    padding-block: var(--button-padding-block);
+                    padding-inline: var(--button-padding-inline);
+                    background-color: var(--button-background-color);
+                    color: var(--button-color);
+                    border: var(--button-border);
+                    border-radius: var(--button-border-radius);
                 }
                 
                 input:focus-visible {
-                    outline: var(--input-focus-outline, unset);
-                    outline-offset: var(--input-focus-outline-offset, unset);
+                    outline: var(--input-focus-outline);
+                    outline-offset: var(--input-focus-outline-offset);
                 }
 
                 select:focus-visible {
-                    outline: var(--select-focus-outline, unset);
-                    outline-offset: var(--select-focus-outline-offset, unset);
+                    outline: var(--select-focus-outline);
+                    outline-offset: var(--select-focus-outline-offset);
                 }
 
                 button:focus-visible {
-                    outline: var(--button-focus-outline, unset);
-                    outline-offset: var(--button-focus-outline-offset, unset);
+                    outline: var(--button-focus-outline);
+                    outline-offset: var(--button-focus-outline-offset);
                 }
                 
                 #container {
@@ -139,10 +142,28 @@ class HitPointSpread extends HTMLElement {
                     width: auto;
                     border-collapse: collapse;
                 }
-                table#result th, table#result td {
-                    border: 1px solid transparent;
-                    padding: 0.25rem 0.5rem;
+                table#result th, 
+                table#result td {
+                    border-inline: 1px solid var(--color-black);
+                    padding: 0.25rem 1ch;
                     text-align: center;
+                }
+                table#result th:first-child, 
+                table#result th:last-child,
+                table#result td:first-child, 
+                table#result td:last-child {
+                    border-inline-start: none;
+                    border-inline-end: none;
+                }
+                table#result thead th {
+                    border-bottom: 1px solid var(--color-black);
+                }
+                table#result tbody tr:nth-child(even) th,
+                table#result tbody tr:nth-child(even) td {
+                    background-color: var(--table-stripe-color);
+                }
+                table#result tbody td {
+                    width: 7ch; /* Magic number */
                 }
 
             </style>
@@ -159,14 +180,14 @@ class HitPointSpread extends HTMLElement {
                                 </legend>
                 
                                 <label for="dice-count" aria-label="Number of dice">
-                                    <input type="text" inputmode="numeric" id="dice-count" name="dice-count" placeholder="1" required="">
+                                    <input type="text" inputmode="numeric" id="dice-count" name="dice-count" placeholder="1" required>
                                 </label>
                 
-                                <label for="dice-type" aria-label="Dice type">
-                                    <select id="dice-type" name="dice-type" required="">
+                                <label for="die-type" aria-label="Dice type">
+                                    <select id="die-type" name="die-type" required>
                                         <option value="4">d4</option>
                                         <option value="6">d6</option>
-                                        <option value="8" selected="">d8</option>
+                                        <option value="8">d8</option>
                                         <option value="10">d10</option>
                                         <option value="12">d12</option>
                                         <option value="20">d20</option>
@@ -189,7 +210,7 @@ class HitPointSpread extends HTMLElement {
                     <table id="result" style="display: none;">
                         <thead>
                             <tr>
-                                <th></th>
+                                <th>Hit Dice Expression</th>
                                 <th>Minimum</th>
                                 <th>Weak</th>
                                 <th>Average</th>
@@ -208,17 +229,23 @@ class HitPointSpread extends HTMLElement {
         // endregion
     }
 
+
     connectedCallback() {
         this.shadowRoot.querySelector('#hitpoint-form').addEventListener('submit', this._onSubmit.bind(this))
+        this.shadowRoot.querySelector('#die-type').value = this.DEFAULT_HIT_DIE_TYPE
     }
 
     _onSubmit(event) {
         event.preventDefault()
 
-        const diceCountString = this.shadowRoot.querySelector('#dice-count').value
-        const dieTypeString = this.shadowRoot.querySelector('#dice-type').value
+        const diceCountInput = this.shadowRoot.querySelector('#dice-count')
+        const dieTypeInput = this.shadowRoot.querySelector('#die-type')
+        const modifierInput = this.shadowRoot.querySelector('#modifier')
 
-        const modifierString = this.shadowRoot.querySelector('#modifier').value || '0'
+        const diceCountString = diceCountInput.value
+        const dieTypeString = dieTypeInput.value
+
+        const modifierString = modifierInput.value || '0'
         const modifierDisplay = !isNaN(Number(modifierString.substring(0, 1))) ? `+${modifierString}` : modifierString
 
         this.shadowRoot.querySelector('#modifier').value = modifierDisplay
@@ -230,6 +257,10 @@ class HitPointSpread extends HTMLElement {
         const hitDiceExpressionForDisplay = `${diceCountString}d${dieTypeString}${modifierDisplay}`
 
         this.updateResults(hitDiceExpressionForDisplay, this.calculateResults(diceCountString, dieTypeString, modifierString))
+
+        diceCountInput.value = ''
+        dieTypeInput.value = this.DEFAULT_HIT_DIE_TYPE
+        modifierInput.value = ''
     }
 
     averageDieResults = {
@@ -245,11 +276,11 @@ class HitPointSpread extends HTMLElement {
         const resultsHistoryEntry = `
             <tr>
                 <th class="hit-dice-expression">${hitDiceExpression}</th>
-                <td class="minimum-hp">${results.minimum}</td>
-                <td class="weak-hp">${results.weak}</td>
-                <td class="average-hp">${results.average}</td>
-                <td class="strong-hp">${results.strong}</td>
-                <td class="maximum-hp">${results.maximum}</td>
+                <td class="hp-value minimum-hp">${results.minimum}</td>
+                <td class="hp-value weak-hp">${results.weak}</td>
+                <td class="hp-value average-hp">${results.average}</td>
+                <td class="hp-value strong-hp">${results.strong}</td>
+                <td class="hp-value maximum-hp">${results.maximum}</td>
             </tr>
         `
 
