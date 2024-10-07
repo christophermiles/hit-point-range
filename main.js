@@ -1,15 +1,6 @@
 class HitPointSpread extends HTMLElement {
     DEFAULT_HIT_DIE_TYPE = '8'
 
-    AVERAGE_DIE_RESULTS = {
-        4: 2.5,
-        6: 3.5,
-        8: 4.5,
-        10: 5.5,
-        12: 6.5,
-        20: 10.5
-    }
-
     constructor() {
         super()
         this.attachShadow({ mode: 'open' })
