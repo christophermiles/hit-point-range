@@ -8,6 +8,11 @@ class HitPointSpread extends HTMLElement {
         const template = document.createElement('template')
         template.innerHTML = `
             <style>
+                form {
+                    display: inline-flex;
+                    align-items: baseline;
+                    gap: 0.25rem;
+                }
                 table {
                     width: auto;
                     border-collapse: collapse;
@@ -17,7 +22,7 @@ class HitPointSpread extends HTMLElement {
                     padding: 8px;
                     text-align: center;
                 }
-                input[type="number"] {
+                input[inputmode="numeric"] {
                     width: 3rem;
                 }
             </style>
@@ -27,7 +32,8 @@ class HitPointSpread extends HTMLElement {
                     <slot name="form-content">
                         <label for="dice-number" aria-label="Number of dice">
                             <input
-                                type="number"
+                                type="text"
+                                inputmode="numeric"
                                 id="dice-number"
                                 name="dice-number"
                                 placeholder="1"
@@ -49,7 +55,8 @@ class HitPointSpread extends HTMLElement {
                         
                         <label for="bonus" aria-label="Modifier">
                             <input
-                                type="number"
+                                type="text"
+                                inputmode="numeric"
                                 id="bonus"
                                 name="bonus"
                                 placeholder="+0"
