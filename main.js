@@ -15,28 +15,46 @@ class HitPointSpread extends HTMLElement {
                 th, td {
                     border: 1px solid transparent;
                     padding: 8px;
-                    text-align: left;
+                    text-align: center;
+                }
+                input[type="number"] {
+                    width: 3rem;
                 }
             </style>
             
             <div>
                 <form id="hitpoint-form">
                     <slot name="form-content">
-                        <label for="dice-number">Number of dice: </label>
-                        <input type="number" id="dice-number" name="dice-number" placeholder="eg. 4">
+                        <label for="dice-number" aria-label="Number of dice">
+                            <input
+                                type="number"
+                                id="dice-number"
+                                name="dice-number"
+                                placeholder="1"
+                                required
+                            >
+                        </label>
                         
-                        <label for="dice-type">Dice type: </label>
-                        <select name="dice-type">
-                            <option value="4">d4</option>
-                            <option value="6">d6</option>
-                            <option value="8">d8</option>
-                            <option value="10">d10</option>
-                            <option value="12">d12</option>
-                            <option value="20">d20</option>
-                        </select>
+                        <label for="dice-type" aria-label="Dice type">
+                            d
+                            <select name="dice-type" required>
+                                <option value="4">4</option>
+                                <option value="6">6</option>
+                                <option value="8">8</option>
+                                <option value="10">10</option>
+                                <option value="12">12</option>
+                                <option value="20">20</option>
+                            </select>
+                        </label>
                         
-                        <label for="bonus">Bonus: </label>
-                        <input type="number" id="bonus" name="bonus" placeholder="eg. +4">
+                        <label for="bonus" aria-label="Modifier">
+                            <input
+                                type="number"
+                                id="bonus"
+                                name="bonus"
+                                placeholder="+0"
+                            >
+                        </label>
                         
                         <button type="submit">Calculate</button>
                     </slot>
@@ -48,29 +66,19 @@ class HitPointSpread extends HTMLElement {
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Type</th>
-                                    <th>Value</th>
+                                    <th>Minimum</th>
+                                    <th>Weak</th>
+                                    <th>Average</th>
+                                    <th>Strong</th>
+                                    <th>Maximum</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Minimum</td>
                                     <td id="min-hp">&mdash;</td>
-                                </tr>
-                                <tr>
-                                    <td>Weak</td>
                                     <td id="weak-hp">&mdash;</td>
-                                </tr>
-                                <tr>
-                                    <td>Average</td>
                                     <td id="avg-hp">&mdash;</td>
-                                </tr>
-                                <tr>
-                                    <td>Strong</td>
                                     <td id="strong-hp">&mdash;</td>
-                                </tr>
-                                <tr>
-                                    <td>Maximum</td>
                                     <td id="max-hp">&mdash;</td>
                                 </tr>
                             </tbody>
