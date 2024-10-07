@@ -1,6 +1,15 @@
 class HitPointSpread extends HTMLElement {
     DEFAULT_HIT_DIE_TYPE = '8'
 
+    AVERAGE_DIE_RESULTS = {
+        4: 2.5,
+        6: 3.5,
+        8: 4.5,
+        10: 5.5,
+        12: 6.5,
+        20: 10.5
+    }
+
     constructor() {
         super()
         this.attachShadow({ mode: 'open' })
@@ -257,15 +266,6 @@ class HitPointSpread extends HTMLElement {
         modifierInput.value = ''
     }
 
-    averageDieResults = {
-        4: 2.5,
-        6: 3.5,
-        8: 4.5,
-        10: 5.5,
-        12: 6.5,
-        20: 10.5
-    }
-
     updateResults(hitDiceExpression, results) {
         const resultsHistoryEntry = `
             <tr>
@@ -301,8 +301,11 @@ class HitPointSpread extends HTMLElement {
             throw new Error('Modifier number must be an integer')
         }
 
-        if (!this.averageDieResults.hasOwnProperty(dieTypeNumber)) {
-            throw new TypeError(`Invalid die type, must be one of ${Object.keys(this.averageDieResults).join(', ')}`)
+        function getDieAverage(dieTypeNumber) {
+            const array = Array.from({ length: Math.floor(dieTypeNumber) }, (_, i) => i + 1)
+            const sum = array.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+            const average = sum / array.length
+            return Math.round(average * 2) / 2 // Rounds to nearest 0.5
         }
 
         function calculateMiddle(a, b) {
@@ -316,7 +319,7 @@ class HitPointSpread extends HTMLElement {
 
         const minimum = calculateMinimum()
 
-        const average = Math.floor(diceCountNumber * this.averageDieResults[dieTypeNumber]) + modifierNumber
+        const average = Math.floor(diceCountNumber * getDieAverage(dieTypeNumber)) + modifierNumber
         const maximum = (diceCountNumber * dieTypeNumber) + modifierNumber
 
         const weak = calculateMiddle(minimum, average)
