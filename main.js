@@ -303,8 +303,7 @@ class HitPointSpread extends HTMLElement {
 
         function getDieAverage() {
             const array = Array.from({ length: Math.floor(dieTypeNumber) }, (_, i) => i + 1)
-            const sum = array.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-            const average = sum / array.length
+            const average = array.reduce((accumulator, currentValue) => accumulator + currentValue, 0) / array.length
             return Math.round(average * 2) / 2 // Rounds to nearest 0.5
         }
 
