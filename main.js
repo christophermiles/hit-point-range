@@ -9,7 +9,7 @@ class HitPointSpread extends HTMLElement {
         template.innerHTML = `
             <style>
                 table {
-                    width: 100%;
+                    width: auto;
                     border-collapse: collapse;
                 }
                 th, td {
@@ -26,7 +26,14 @@ class HitPointSpread extends HTMLElement {
                         <input type="number" id="dice-number" name="dice-number" placeholder="eg. 4">
                         
                         <label for="dice-type">Dice type: </label>
-                        <input type="text" id="dice-type" name="dice-type" placeholder="eg. d8">
+                        <select name="dice-type">
+                            <option value="4">d4</option>
+                            <option value="6">d6</option>
+                            <option value="8">d8</option>
+                            <option value="10">d10</option>
+                            <option value="12">d12</option>
+                            <option value="20">d20</option>
+                        </select>
                         
                         <label for="bonus">Bonus: </label>
                         <input type="number" id="bonus" name="bonus" placeholder="eg. +4">
