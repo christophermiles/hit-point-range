@@ -15,6 +15,7 @@ class HitPointSpread extends HTMLElement {
                     --color-black: #171717;
                     --color-white: white;
                     --base-font-size: 1rem;
+                    --base-font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
                     --base-text-color: var(--color-black);
                     --base-focus-color: var(--color-blue);
                     --input-padding-block: 0.25ch;
@@ -100,6 +101,7 @@ class HitPointSpread extends HTMLElement {
                     flex-direction: column;
                     gap: 1rem;
                     align-items: center;
+                    font-family: var(--base-font-family);
                 }
                 
                 form {
