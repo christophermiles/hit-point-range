@@ -1,4 +1,4 @@
-class HitPointSpread extends HTMLFieldSetElement {
+class HitPointSpread extends HTMLElement {
     constructor() {
         super()
 
@@ -6,4 +6,4 @@ class HitPointSpread extends HTMLFieldSetElement {
     }
 }
 
-customElements.define('hit-point-spread', HitPointSpread, { extends: 'fieldset' })
+customElements.define('hit-point-spread', HitPointSpread)
