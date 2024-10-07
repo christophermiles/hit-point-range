@@ -15,41 +15,24 @@ class HitPointSpread extends HTMLElement {
                     --base-font-size: 1rem;
                     --base-text-color: var(--color-black);
                     --base-focus-color: var(--color-blue);
-                    --input-font-size: var(--base-font-size);
                     --input-padding-block: 0.25rem;
-                    --input-padding-inline: 1px;
+                    --input-padding-inline: 0.25rem;
                     --input-border-color: var(--color-black);
                     --input-border-block-start: 1px solid transparent;
                     --input-border-block-end: 1px solid var(--input-border-color, black);
                     --input-border-inline-start: 1px solid transparent;
                     --input-border-inline-end: 1px solid transparent;
                     --input-border-radius: 0;
-                    --input-focus-outline-width: 0;
-                    --input-focus-outline-style: none;
-                    --input-focus-outline-color: transparent;
-                    --input-focus-outline-offset: 0;
-                    --input-focus-border-block-start: 1px solid var(--base-focus-color, black);
-                    --input-focus-border-block-end: 1px solid var(--base-focus-color, black);
-                    --input-focus-border-inline-start: 1px solid var(--base-focus-color, black);
-                    --input-focus-border-inline-end: 1px solid var(--base-focus-color, black);
+                    --input-focus-outline: 1px solid var(--base-focus-color);
+                    --input-focus-outline-offset: -1px;
                     --select-font-size: var(--base-font-size);
                     --select-padding-block: 0.25rem;
-                    --select-padding-inline: 1px;
+                    --select-padding-inline: 0.25rem;
                     --select-border-color: var(--color-black);
-                    --select-border-block-start: 1px solid transparent;
-                    --select-border-block-end: 1px solid transparent;
-                    --select-border-inline-start: 1px solid transparent;
-                    --select-border-inline-end: 1px solid transparent;
                     --select-background-color: none;
                     --select-border-radius: 0;
-                    --select-focus-outline-width: 0;
-                    --select-focus-outline-style: none;
-                    --select-focus-outline-color: transparent;
+                    --select-focus-outline: 1px solid var(--base-focus-color);
                     --select-focus-outline-offset: 0;
-                    --select-focus-border-block-start: 1px solid var(--base-focus-color);
-                    --select-focus-border-block-end: 1px solid var(--base-focus-color);
-                    --select-focus-border-inline-start: 1px solid var(--base-focus-color);
-                    --select-focus-border-inline-end: 1px solid var(--base-focus-color);
                     --button-font-size: var(--input-font-size, 1rem);
                     --button-border: none;
                     --button-background-color: var(--color-black, black);
@@ -57,82 +40,56 @@ class HitPointSpread extends HTMLElement {
                     --button-padding-block: 0.25rem;
                     --button-padding-inline: 0.25rem;
                     --button-border-radius: 0;
-                    --button-focus-outline-width: 1px;
-                    --button-focus-outline-style: solid;
-                    --button-focus-outline-color: var(--base-focus-color);
+                    --button-focus-outline: 1px solid var(--base-focus-color);
                     --button-focus-outline-offset: 0px;
-                    --button-focus-border-block-start: none;
-                    --button-focus-border-block-end: none;
-                    --button-focus-border-inline-start: none;
-                    --button-focus-border-inline-end: none;
+                }
+                
+                input, select, button {
+                    all: unset;
+                    font-size: inherit;
+                    font-family: inherit;
                 }
                 
                 input {
-                    all: unset;
-                    font-size: var(--input-font-size, inherit);
-                    padding-block: var(--input-padding-block, initial);
-                    padding-inline: var(--input-padding-inline, initial);
-                    border-block-start: var(--input-border-block-start, initial);
-                    border-block-end: var(--input-border-block-end, initial);
-                    border-inline-start: var(--input-border-inline-start, initial);
-                    border-inline-end: var(--input-border-inline-end, initial);
-                    border-radius: var(--input-border-radius, initial);
-                    font-family: inherit;
+                    padding-block: var(--input-padding-block, unset);
+                    padding-inline: var(--input-padding-inline, unset);
+                    border-block-start: var(--input-border-block-start, unset);
+                    border-block-end: var(--input-border-block-end, unset);
+                    border-inline-start: var(--input-border-inline-start, unset);
+                    border-inline-end: var(--input-border-inline-end, unset);
                 }
 
                 select {
-                    all: unset;
-                    font-size: var(--select-font-size, inherit);
-                    padding-block: var(--select-padding-block, initial);
-                    padding-inline: var(--select-padding-inline, initial);
-                    border-block-start: var(--select-border-block-start, initial);
-                    border-block-end: var(--select-border-block-end, initial);
-                    border-inline-start: var(--select-border-inline-start, initial);
-                    border-inline-end: var(--select-border-inline-end, initial);
-                    background-color: var(--select-background-color, initial);
-                    border-radius: var(--select-border-radius, initial);
-                    font-family: inherit;
                     cursor: pointer;
+                    padding-block: var(--select-padding-block, unset);
+                    padding-inline: var(--select-padding-inline, unset);
+                    border: var(--select-border, unset);
+                    background-color: var(--select-background-color, unset);
+                    border-radius: var(--select-border-radius, unset);
                 }
                 
                 button {
-                    all: unset;
-                    background-color: var(--button-background-color, initial);
-                    color: var(--button-color, inherit);
-                    padding-block: var(--button-padding-block, initial);
-                    padding-inline: var(--button-padding-inline, initial);
-                    border: var(--button-border, initial);
-                    border-radius: var(--button-border-radius, initial);
-                    font-family: inherit;
-                    font-size: var(--input-font-size, inherit);
-                    cursor: pointer;
+                    padding-block: var(--button-padding-block, unset);
+                    padding-inline: var(--button-padding-inline, unset);
+                    background-color: var(--button-background-color, unset);
+                    color: var(--button-color, unset);
+                    border: var(--button-border, unset);
+                    border-radius: var(--button-border-radius, unset);
                 }
                 
                 input:focus-visible {
-                    outline: var(--input-focus-outline-width, initial) var(--input-focus-outline-style, initial) var(--input-focus-outline-color, initial);
-                    outline-offset: var(--input-focus-outline-offset, initial);
-                    border-block-start: var(--input-focus-border-block-start, initial);
-                    border-block-end: var(--input-focus-border-block-end, initial);
-                    border-inline-start: var(--input-focus-border-inline-start, initial);
-                    border-inline-end: var(--input-focus-border-inline-end, initial);
+                    outline: var(--input-focus-outline, unset);
+                    outline-offset: var(--input-focus-outline-offset, unset);
                 }
 
                 select:focus-visible {
-                    outline: var(--select-focus-outline-width, initial) var(--select-focus-outline-style, initial) var(--select-focus-outline-color, initial);
-                    outline-offset: var(--select-focus-outline-offset, initial);
-                    border-block-start: var(--select-focus-border-block-start, initial);
-                    border-block-end: var(--select-focus-border-block-end, initial);
-                    border-inline-start: var(--select-focus-border-inline-start, initial);
-                    border-inline-end: var(--select-focus-border-inline-end, initial);
+                    outline: var(--select-focus-outline, unset);
+                    outline-offset: var(--select-focus-outline-offset, unset);
                 }
 
                 button:focus-visible {
-                    outline: var(--button-focus-outline-width, initial) var(--button-focus-outline-style, initial) var(--button-focus-outline-color, initial);
-                    outline-offset: var(--button-focus-outline-offset, initial);
-                    border-block-start: var(--button-focus-border-block-start, initial);
-                    border-block-end: var(--button-focus-border-block-end, initial);
-                    border-inline-start: var(--button-focus-border-inline-start, initial);
-                    border-inline-end: var(--button-focus-border-inline-end, initial);
+                    outline: var(--button-focus-outline, unset);
+                    outline-offset: var(--button-focus-outline-offset, unset);
                 }
                 
                 #container {
@@ -144,7 +101,7 @@ class HitPointSpread extends HTMLElement {
                 
                 form {
                     display: inline-flex;
-                    gap: 0.25rem;
+                    gap: 0;
                     align-items: baseline;
                 }
                 
@@ -171,27 +128,23 @@ class HitPointSpread extends HTMLElement {
                 }
 
                 input[name="dice-count"] {
-                    width: 2rem;
+                    width: 1.5rem;
                     text-align: right;
                 }
                 input[name="modifier"] {
-                    width: 3rem;
+                    width: 2.5rem;
                     text-align: left;
                 }
-                table {
+                table#result {
                     width: auto;
                     border-collapse: collapse;
                 }
-                th, td {
+                table#result th, table#result td {
                     border: 1px solid transparent;
-                    padding: 0.25rem;
+                    padding: 0.25rem 0.5rem;
                     text-align: center;
                 }
-                td:empty:after {
-                    content: '—';
-                    color: var(--color-grey);
-                }
-                
+
             </style>
             
             <div id="container">
@@ -227,15 +180,16 @@ class HitPointSpread extends HTMLElement {
                         </fieldset>
                         
                         <button type="submit" tabindex="0">
-                            Calculate
+                            Generate
                         </button>
                     </slot>
                 </form>
 
                 <slot name="result-table">
-                    <table id="result">
+                    <table id="result" style="display: none;">
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>Minimum</th>
                                 <th>Weak</th>
                                 <th>Average</th>
@@ -244,19 +198,8 @@ class HitPointSpread extends HTMLElement {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td id="min-hp"></td>
-                                <td id="weak-hp"></td>
-                                <td id="avg-hp"></td>
-                                <td id="strong-hp"></td>
-                                <td id="max-hp"></td>
-                            </tr>
                         </tbody>
                     </table>
-                </slot>
-                
-                <slot name="result-history">
-                    <ol id="result-history"></ol>
                 </slot>
             </div>
         `
@@ -275,8 +218,8 @@ class HitPointSpread extends HTMLElement {
         const diceCountString = this.shadowRoot.querySelector('#dice-count').value
         const dieTypeString = this.shadowRoot.querySelector('#dice-type').value
 
-        const modifierString = this.shadowRoot.querySelector('#modifier').value
-        const modifierDisplay = !isNaN(modifierString.substring(0, 1)) ? `+${modifierString}` : modifierString
+        const modifierString = this.shadowRoot.querySelector('#modifier').value || '0'
+        const modifierDisplay = !isNaN(Number(modifierString.substring(0, 1))) ? `+${modifierString}` : modifierString
 
         this.shadowRoot.querySelector('#modifier').value = modifierDisplay
 
@@ -284,37 +227,9 @@ class HitPointSpread extends HTMLElement {
             return
         }
 
-        const hitDiceExpressionForDisplay = `${diceCountString}d${diceCountString}${modifierDisplay}`
+        const hitDiceExpressionForDisplay = `${diceCountString}d${dieTypeString}${modifierDisplay}`
 
         this.updateResults(hitDiceExpressionForDisplay, this.calculateResults(diceCountString, dieTypeString, modifierString))
-    }
-
-    resultsHistory = {}
-
-    updateResults(hitDiceExpression, results) {
-        const dateAdded = Date.now()
-
-        this.resultsHistory[dateAdded] = [hitDiceExpression, results]
-
-        const table = this.shadowRoot.querySelector('table#result')
-
-        table.querySelector('#min-hp').textContent = results.minimum
-        table.querySelector('#weak-hp').textContent = results.weak
-        table.querySelector('#avg-hp').textContent = results.average
-        table.querySelector('#strong-hp').textContent = results.strong
-        table.querySelector('#max-hp').textContent = results.maximum
-
-        const resultsHistoryEntry = `
-            <li>
-                <strong>
-                    ${hitDiceExpression}
-                </strong>
-                
-                ${results.minimum} / ${results.weak} / <strong>${results.average}</strong> / ${results.strong} / ${results.maximum}
-            </li>
-        `
-
-        this.shadowRoot.querySelector('#result-history').insertAdjacentHTML('beforeend', resultsHistoryEntry)
     }
 
     averageDieResults = {
@@ -326,35 +241,24 @@ class HitPointSpread extends HTMLElement {
         20: 10.5
     }
 
-    getAverageDieResult(dieTypeNumber) {
-        if (isNaN(dieTypeNumber)) {
-            throw new TypeError('Die type must be a number')
-        }
+    updateResults(hitDiceExpression, results) {
+        const resultsHistoryEntry = `
+            <tr>
+                <th class="hit-dice-expression">${hitDiceExpression}</th>
+                <td class="minimum-hp">${results.minimum}</td>
+                <td class="weak-hp">${results.weak}</td>
+                <td class="average-hp">${results.average}</td>
+                <td class="strong-hp">${results.strong}</td>
+                <td class="maximum-hp">${results.maximum}</td>
+            </tr>
+        `
 
-        if (!this.averageDieResults.hasOwnProperty(dieTypeNumber)) {
-            throw new TypeError(`Unknown die type ${dieTypeNumber}`)
-        }
+        const table = this.shadowRoot.querySelector('table#result')
 
-        return this.averageDieResults[dieTypeNumber]
+        table.querySelector('tbody').insertAdjacentHTML('beforeend', resultsHistoryEntry)
+        table.style.display = 'revert'
     }
 
-    calculateMinimum(diceCountNumber, modifierNumber) {
-        if (isNaN(diceCountNumber) || diceCountNumber <= 0) {
-            throw new Error('Dice count number must be a positive integer')
-        }
-
-        if (isNaN(modifierNumber)) {
-            throw new Error('Modifier number must be an integer')
-        }
-
-        const minimum = diceCountNumber + modifierNumber
-
-        return minimum >= 1 ? minimum : 1
-    }
-
-    calculateMiddle(a, b) {
-        return Math.floor((a + b) / 2)
-    }
 
     calculateResults(diceCountString, dieTypeString, modifierString = '0') {
         const diceCountNumber = parseInt(diceCountString, 10)
@@ -365,12 +269,34 @@ class HitPointSpread extends HTMLElement {
             throw new Error('Die type and number of dice must be positive integers.')
         }
 
-        const minimum = this.calculateMinimum(diceCountNumber, modifierNumber)
-        const average = Math.floor(diceCountNumber * this.getAverageDieResult(dieTypeNumber)) + modifierNumber
+        if (isNaN(diceCountNumber) || diceCountNumber <= 0) {
+            throw new Error('Dice count number must be a positive integer')
+        }
+
+        if (isNaN(modifierNumber)) {
+            throw new Error('Modifier number must be an integer')
+        }
+
+        if (!this.averageDieResults.hasOwnProperty(dieTypeNumber)) {
+            throw new TypeError(`Invalid die type, must be one of ${Object.keys(this.averageDieResults).join(', ')}`)
+        }
+
+        function calculateMiddle(a, b) {
+            return Math.floor((a + b) / 2)
+        }
+
+        function calculateMinimum() {
+            const minimum = diceCountNumber + modifierNumber
+            return minimum >= 1 ? minimum : 1
+        }
+
+        const minimum = calculateMinimum()
+
+        const average = Math.floor(diceCountNumber * this.averageDieResults[dieTypeNumber]) + modifierNumber
         const maximum = (diceCountNumber * dieTypeNumber) + modifierNumber
 
-        const weak = this.calculateMiddle(minimum, average)
-        const strong = this.calculateMiddle(average, maximum)
+        const weak = calculateMiddle(minimum, average)
+        const strong = calculateMiddle(average, maximum)
 
         return {
             minimum,
