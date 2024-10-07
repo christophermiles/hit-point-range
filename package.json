@@ -4,7 +4,7 @@
   "description": "A lightweight Web Component that Dungeon Masters can use to calculate key hit point values from a Hit Dice expression for Dungeons & Dragons creatures. Outputs include minimum, weak, average, strong, and maximum hit points to give a full spread of possible outcomes.",
   "main": "main.js",
   "scripts": {
-    "serve": "npx http-server -c-1"
+    "serve": "npx http-server . -c-1"
   },
   "repository": {
     "type": "git",
