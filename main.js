@@ -301,7 +301,7 @@ class HitPointSpread extends HTMLElement {
             throw new Error('Modifier number must be an integer')
         }
 
-        function getDieAverage(dieTypeNumber) {
+        function getDieAverage() {
             const array = Array.from({ length: Math.floor(dieTypeNumber) }, (_, i) => i + 1)
             const sum = array.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
             const average = sum / array.length
@@ -319,7 +319,7 @@ class HitPointSpread extends HTMLElement {
 
         const minimum = calculateMinimum()
 
-        const average = Math.floor(diceCountNumber * getDieAverage(dieTypeNumber)) + modifierNumber
+        const average = Math.floor(diceCountNumber * getDieAverage()) + modifierNumber
         const maximum = (diceCountNumber * dieTypeNumber) + modifierNumber
 
         const weak = calculateMiddle(minimum, average)
