@@ -1,4 +1,4 @@
-class HitPointSpread extends HTMLElement {
+class HitPointRange extends HTMLElement {
     DEFAULT_HIT_DIE_TYPE = '8'
 
     constructor() {
@@ -343,4 +343,4 @@ class HitPointSpread extends HTMLElement {
     }
 }
 
-customElements.define('hit-point-spread', HitPointSpread)
+customElements.define('hit-point-range', HitPointRange)

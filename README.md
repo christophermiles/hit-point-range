@@ -51,7 +51,7 @@ npm run serve
 
 The form elements used in this component have somewhat opinionated styling in terms of borders and focus states.
 
-You can tweak these values (and many others) by setting certain custom properties [developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) on `<hit-point-spread>` in your stylesheet.
+You can tweak these values (and many others) by setting certain custom properties [developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) on `<hit-point-range>` in your stylesheet.
 
 ```
 --color-grey
@@ -98,7 +98,7 @@ For example, the inputs have only a bottom border (of `1px`) by default. To exte
 <head>
     <!-- ... -->
     <style>
-        hit-point-spread {
+        hit-point-range {
             --input-border-block-start: 
                 2px solid var(--input-border-color);
             --input-border-block-end: 
@@ -112,7 +112,7 @@ For example, the inputs have only a bottom border (of `1px`) by default. To exte
 </head>
 
 <body>
-    <hit-point-spread></hit-point-spread>
+    <hit-point-range></hit-point-range>
     
     <script type="module" src="main.js"></script>
 </body>
@@ -122,7 +122,7 @@ Or you (should be able to?) define your own new CSS custom property and use that
 
 ```html
 <style>
-    hit-point-spread {
+    hit-point-range {
         --input-border: 
             2px solid var(--input-border-color);
         --input-border-block-start: var(--input-border);
@@ -146,12 +146,12 @@ For example, to reset all the form elements, `<th>` elements and `<td>` elements
 
 ```html
 <style>
-    hit-point-spread::part(dice-count-input),
-    hit-point-spread::part(die-type-select),
-    hit-point-spread::part(modifier-input),
-    hit-point-spread::part(submit-button),
-    hit-point-spread::part(table-cell),
-    hit-point-spread::part(table-heading-inline) {
+    hit-point-range::part(dice-count-input),
+    hit-point-range::part(die-type-select),
+    hit-point-range::part(modifier-input),
+    hit-point-range::part(submit-button),
+    hit-point-range::part(table-cell),
+    hit-point-range::part(table-heading-inline) {
         all: revert;
     }
 </style>
