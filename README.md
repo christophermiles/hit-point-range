@@ -10,7 +10,7 @@ A lightweight Web Component for calculating the following Hit Point values from 
 
 Using a creature’s average Hit Points works just fine for most combats. 
 
-But sometimes you might want to give your <abbr title="Big Bad Evil Guy">BBEG</abbr> maximum Hit Points&nbsp;😈.
+But sometimes you might want to give your <abbr title="Big Bad Evil Guy">BBEG</abbr> (Big Bad Evil Guy) maximum Hit Points&nbsp;😈.
 
 Or maybe you’re using multiple creatures of the same in a battle, and want them to have varying degrees of durability. 
 
