@@ -16,8 +16,6 @@ Or maybe you’re using multiple creatures of the same in a battle, and want the
 
 Or you want to tweak a creature’s Hit Points mid-battle ([Mike Shea at Sly Flourish](https://slyflourish.com) explains why we might want to do this at [slyflourish.com/tweaking_monster_hit_points.html](https://slyflourish.com/tweaking_monster_hit_points.html)), but feel bad choosing a *completely* arbitrary number. 
 
----
-
 ## Features
 
 ### Results table
@@ -32,8 +30,6 @@ Each time you calculate Hit Point ranges from a Hit Dice expression, the results
 
 These results are from an Orc, Gelatinous Cube and Tarrasque respectively.
 
----
-
 ## Demo
 
 To see the component in action, run:
@@ -41,8 +37,6 @@ To see the component in action, run:
 ```shell
 npm run serve
 ```
-
----
 
 ## Styling the component
 
