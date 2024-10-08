@@ -12,7 +12,7 @@ Outputs include the following values to give an even spread of possible outcomes
 
 Using a creature’s average Hit Points works just fine for most combats. 
 
-But sometimes you might want to give your <abbr title="Big Bad Evil Guy">BBEG</abbr> their maximum Hit Points&nbsp;😈.
+But sometimes you might want to give your <abbr title="Big Bad Evil Guy">BBEG</abbr> maximum Hit Points&nbsp;😈.
 
 Or maybe you’re using multiple creatures of the same in a battle, and want them to have varying degrees of durability. 
 
