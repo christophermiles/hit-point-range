@@ -14,7 +14,7 @@ But sometimes you might want to give your <abbr title="Big Bad Evil Guy">BBEG</a
 
 Or maybe you’re using multiple creatures of the same in a battle, and want them to have varying degrees of durability. 
 
-Or you want to tweak a creature’s Hit Points mid-battle ([Mike Shea at Sly Flourish](https://slyflourish.com) explains why we might want to do this at [slyflourish.com/tweaking_monster_hit_points.html](https://slyflourish.com/tweaking_monster_hit_points.html)), but feel bad choosing a *completely* arbitrary number. 
+Or you want to tweak a creature’s Hit Points mid-battle ([Mike Shea at Sly Flourish explains why we might want to do this](https://slyflourish.com/tweaking_monster_hit_points.html)), but don’t feel comfortably choosing a *completely* arbitrary number. 
 
 ## Features
 
