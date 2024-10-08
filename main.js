@@ -161,7 +161,7 @@ class HitPointSpread extends HTMLElement {
             </style>
             
             <div id="container">
-                <form id="hitpoint-form" part="form">
+                <form id="hitpoint-form">
                     <slot name="form-content">
                         <fieldset>
                             <div>
@@ -184,7 +184,12 @@ class HitPointSpread extends HTMLElement {
                                 </label>
                 
                                 <label for="die-type" aria-label="Dice type">
-                                    <select id="die-type" name="die-type" required part="die-type-select">
+                                    <select
+                                        id="die-type"
+                                        name="die-type"
+                                        required
+                                        part="die-type-select"
+                                    >
                                         <option value="4">d4</option>
                                         <option value="6">d6</option>
                                         <option value="8">d8</option>
@@ -217,16 +222,16 @@ class HitPointSpread extends HTMLElement {
                     <table id="result">
                         <thead>
                             <tr>
-                                <th></th>
-                                <th colspan="5">Hit Points</th>
+                                <th part="table-head-inline"></th>
+                                <th part="table-head-inline" colspan="5">Hit Points</th>
                             </tr>
                             <tr>
-                                <th>Hit Dice Expression</th>
-                                <th>Minimum</th>
-                                <th>Weak</th>
-                                <th>Average</th>
-                                <th>Strong</th>
-                                <th>Maximum</th>
+                                <th part="table-head-inline">Hit Dice Expression</th>
+                                <th part="table-head-inline">Minimum</th>
+                                <th part="table-head-inline">Weak</th>
+                                <th part="table-head-inline">Average</th>
+                                <th part="table-head-inline">Strong</th>
+                                <th part="table-head-inline">Maximum</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -277,12 +282,12 @@ class HitPointSpread extends HTMLElement {
     updateResults(hitDiceExpression, results) {
         const resultsHistoryEntry = `
             <tr>
-                <th class="hit-dice-expression">${hitDiceExpression}</th>
-                <td class="hp-value minimum-hp">${results.minimum}</td>
-                <td class="hp-value weak-hp">${results.weak}</td>
-                <td class="hp-value average-hp">${results.average}</td>
-                <td class="hp-value strong-hp">${results.strong}</td>
-                <td class="hp-value maximum-hp">${results.maximum}</td>
+                <th class="hit-dice-expression" part="table-head-inline">${hitDiceExpression}</th>
+                <td class="hp-value minimum-hp" part="table-cell">${results.minimum}</td>
+                <td class="hp-value weak-hp" part="table-cell">${results.weak}</td>
+                <td class="hp-value average-hp" part="table-cell">${results.average}</td>
+                <td class="hp-value strong-hp" part="table-cell">${results.strong}</td>
+                <td class="hp-value maximum-hp" part="table-cell">${results.maximum}</td>
             </tr>
         `
 
