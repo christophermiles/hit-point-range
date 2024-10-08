@@ -133,7 +133,7 @@ Or you (should be able to?) define your own new CSS custom property and use that
 </style>
 ```
 
-For styling that isn’t covered by the CSS properties,you can pierce the component’s Shadow DOM and target the following elements:
+For styling that isn’t covered by the CSS properties, you can pierce the component’s Shadow DOM and target the following elements:
 
 - The dice count `<input>`
 - The die type `<select>`
