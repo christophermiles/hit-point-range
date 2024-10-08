@@ -105,7 +105,7 @@ For example, the inputs have only a bottom border (of `1px`) by default. To exte
 <body>
     <hit-point-spread></hit-point-spread>
     
-    <script type="module" src="../main.js"></script>
+    <script type="module" src="main.js"></script>
 </body>
 ```
 
