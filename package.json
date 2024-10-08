@@ -1,5 +1,5 @@
 {
-  "name": "hit-point-range",
+  "name": "hit-point-range-web-component",
   "version": "1.0.0",
   "description": "A web component for calculating a range of Hit Point values from a Dungeons & Dragons Hit Dice expression.",
   "main": "main.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/christophermiles/hit-point-range.git"
+    "url": "git+https://github.com/christophermiles/hit-point-range-web-component.git"
   },
   "keywords": [
     "dungeons-and-dragons",
@@ -18,7 +18,7 @@
   "author": "Christopher Miles <mail@christophermiles.com.au> (http://christophermiles.com.au)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/christophermiles/hit-point-range/issues"
+    "url": "https://github.com/christophermiles/hit-point-range-web-component/issues"
   },
-  "homepage": "https://github.com/christophermiles/hit-point-range#readme"
+  "homepage": "https://github.com/christophermiles/hit-point-range-web-component#readme"
 }
