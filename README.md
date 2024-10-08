@@ -37,7 +37,19 @@ These results are from an Orc, Gelatinous Cube and Tarrasque respectively.
 - Safari: 14.1+
 - Edge (Chromium): 86+
 
-## Local demo (requires `npm` and `npx`)
+## Demo
+
+<!--
+```
+<custom-element-demo>
+  <template>
+    <link rel="import" href="index.html">
+  </template>
+</custom-element-demo>
+```
+-->
+
+### Run locally (requires `npm` and `npx`)
 
 To see the component in action, run:
 
