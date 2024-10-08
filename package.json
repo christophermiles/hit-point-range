@@ -11,7 +11,9 @@
     "url": "git+https://github.com/christophermiles/hit-point-spread.git"
   },
   "keywords": [
-    "d&d"
+    "dungeons-and-dragons",
+    "hit-points",
+    "hit-dice"
   ],
   "author": "Christopher Miles <mail@christophermiles.com.au> (http://christophermiles.com.au)",
   "license": "MIT",
