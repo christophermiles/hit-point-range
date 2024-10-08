@@ -30,7 +30,6 @@ Each time you calculate Hit Point ranges from a Hit Dice expression, the results
 
 These results are from an Orc, Gelatinous Cube and Tarrasque respectively.
 
-## Demo
 ## Browser compatibility
 
 - Chrome: 86+
@@ -38,6 +37,7 @@ These results are from an Orc, Gelatinous Cube and Tarrasque respectively.
 - Safari: 14.1+
 - Edge (Chromium): 86+
 
+## Local demo (requires `npm` and `npx`)
 
 To see the component in action, run:
 
