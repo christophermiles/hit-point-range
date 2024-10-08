@@ -1,6 +1,4 @@
-A lightweight Web Component that Dungeon Masters can use to calculate a range of hit point values from a <a href="https://www.dndbeyond.com/sources/dnd/basic-rules-2014/monsters#HitPoints">Dungeons &amp; Dragons creature’s Hit Dice expression</a>. 
-
-Outputs include the following values to give an even spread of possible outcomes:
+A lightweight Web Component for calculating the following Hit Point values from a <a href="https://www.dndbeyond.com/sources/dnd/basic-rules-2014/monsters#HitPoints">Dungeons &amp; Dragons creature’s Hit Dice expression</a>:
 
 - **minimum** (lowest possible Hit Die roll, plus modifier)
 - **weak** (midway between minimum and average)
@@ -16,6 +14,4 @@ But sometimes you might want to give your <abbr title="Big Bad Evil Guy">BBEG</a
 
 Or maybe you’re using multiple creatures of the same in a battle, and want them to have varying degrees of durability. 
 
-Or you want to tweak a creature’s Hit Points mid-battle, but feel bad choosing a *completely* arbitrary number by fiat.
-
-<a href="https://slyflourish.com">Mike Shea at Sly Flourish</a> has a great article on why we might want to do this at <a href="https://slyflourish.com/tweaking_monster_hit_points.html">slyflourish.com/tweaking_monster_hit_points.html</a>
+Or you want to tweak a creature’s Hit Points mid-battle, but feel bad choosing a *completely* arbitrary number by fiat. (<a href="https://slyflourish.com">Mike Shea at Sly Flourish</a> has a great article on why we might want to do this at <a href="https://slyflourish.com/tweaking_monster_hit_points.html">slyflourish.com/tweaking_monster_hit_points.html</a>)
