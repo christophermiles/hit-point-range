@@ -39,15 +39,11 @@ These results are from an Orc, Gelatinous Cube and Tarrasque respectively.
 
 ## Demo
 
-<!--
-```
 <custom-element-demo>
   <template>
     <link rel="import" href="index.html">
   </template>
 </custom-element-demo>
-```
--->
 
 ### Run locally (requires `npm` and `npx`)
 
