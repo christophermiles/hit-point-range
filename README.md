@@ -1,4 +1,4 @@
-A lightweight Web Component for calculating the following Hit Point values from a [Dungeons &amp; Dragons creature’s Hit Dice expression](https://www.dndbeyond.com/sources/dnd/basic-rules-2014/monsters#HitPoints):
+A [web component](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) for calculating the following Hit Point values from a [Dungeons &amp; Dragons creature’s Hit Dice expression](https://www.dndbeyond.com/sources/dnd/basic-rules-2014/monsters#HitPoints):
 
 - **minimum** (lowest possible Hit Die roll, plus modifier)
 - **weak** (midway between minimum and average)
