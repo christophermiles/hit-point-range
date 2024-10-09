@@ -1,24 +1,24 @@
 {
-  "name": "hit-point-range",
+  "name": "roll-hit-dice-web-component",
   "version": "1.0.0",
   "description": "A web component for calculating a range of Hit Point values from a Dungeons & Dragons Hit Dice expression.",
+  "author": "Christopher Miles <mail@christophermiles.com.au> (http://christophermiles.com.au)",
+  "license": "MIT",
   "main": "main.js",
   "scripts": {
     "serve": "npx http-server . -c-1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/christophermiles/hit-point-range.git"
+    "url": "git+https://github.com/christophermiles/roll-hit-dice-web-component.git"
   },
   "keywords": [
     "dungeons-and-dragons",
     "hit-points",
     "hit-dice"
   ],
-  "author": "Christopher Miles <mail@christophermiles.com.au> (http://christophermiles.com.au)",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/christophermiles/hit-point-range/issues"
+    "url": "https://github.com/christophermiles/roll-hit-dice-web-component/issues"
   },
-  "homepage": "https://github.com/christophermiles/hit-point-range#readme"
+  "homepage": "https://github.com/christophermiles/roll-hit-dice-web-component#readme"
 }

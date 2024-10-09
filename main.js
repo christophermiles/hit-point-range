@@ -1,4 +1,4 @@
-class HitPointRange extends HTMLElement {
+class RollHitDice extends HTMLElement {
     DEFAULT_HIT_DIE_TYPE = '8'
 
     constructor() {
@@ -343,4 +343,4 @@ class HitPointRange extends HTMLElement {
     }
 }
 
-customElements.define('hit-point-range', HitPointRange)
+customElements.define('roll-hit-dice', RollHitDice)
