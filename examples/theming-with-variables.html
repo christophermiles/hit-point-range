@@ -1,0 +1,62 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll Hit Dice - Examples - Font Family: Handwritten</title>
+
+    <style>
+        /* https://github.com/system-fonts/modern-font-stacks#monospace-code */
+        roll-hit-dice {
+            --color-grey: #6B7280;
+            --color-blue: #2563EB;
+            --color-black: #171717;
+            --color-white: white;
+            --base-font-size: 1rem;
+            --base-font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; /* See https://github.com/system-fonts/modern-font-stacks#monospace-code */
+            --base-text-color: var(--color-black);
+            --base-focus-color: var(--color-blue);
+            --input-font-size: var(--base-font-size);
+            --input-font-family: var(--base-font-family);
+            --input-padding-block: 0.25ch;
+            --input-padding-inline: 0.5ch;
+            --input-border-color: var(--color-black);
+            --input-border-block-start: 1px solid transparent;
+            --input-border-block-end: 1px solid var(--input-border-color, black);
+            --input-border-inline-start: 1px solid transparent;
+            --input-border-inline-end: 1px solid transparent;
+            --input-border-radius: 0;
+            --input-focus-outline: 1px solid var(--base-focus-color);
+            --input-focus-outline-offset: -1px;
+            --select-font-size: var(--base-font-size);
+            --select-font-family: var(--base-font-family);
+            --select-padding-block: 0.25ch;
+            --select-padding-inline: 0.5ch;
+            --select-border: 1px solid var(--color-black);
+            --select-background-color: none;
+            --select-border-radius: 0;
+            --select-focus-outline: 1px solid var(--base-focus-color);
+            --select-focus-outline-offset: 0;
+            --button-font-size: var(--input-font-size, 1rem);
+            --button-font-family: var(--base-font-family);
+            --button-border: none;
+            --button-background-color: var(--color-black, black);
+            --button-color: var(--color-white, white);
+            --button-padding-block: 0.5ch;
+            --button-padding-inline: 1ch;
+            --button-border-radius: 0;
+            --button-focus-outline: 1px solid var(--base-focus-color);
+            --button-focus-outline-offset: 0;
+            --table-inline-head-border: 1px solid var(--color-black);
+            --table-cell-border: 1px solid var(--color-black);
+            --table-stripe-color: #F5F5F4;
+        }
+    </style>
+</head>
+<body>
+    <roll-hit-dice></roll-hit-dice>
+
+    <script type="module" src="../main.js"></script>
+</body>
+</html>

@@ -20,7 +20,7 @@ Or you want to tweak a creature’s Hit Points mid-battle ([Mike Shea at Sly Flo
 
 ### Results table
 
-Each time you calculate Hit Point ranges from a Hit Dice expression, the results get appended to a table below the form:
+Each time you calculate Roll Hit Dices from a Hit Dice expression, the results get appended to a table below the form:
 
 | Hit Dice Expression | Minimum | Weak   | Average | Strong | Maximum |
 |---------------------|---------|--------|---------|--------|---------|

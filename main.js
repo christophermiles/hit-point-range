@@ -9,91 +9,51 @@ class RollHitDice extends HTMLElement {
         const template = document.createElement('template')
         template.innerHTML = `
             <style>
-                :host {
-                    --color-grey: #6B7280;
-                    --color-blue: #2563EB;
-                    --color-black: #171717;
-                    --color-white: white;
-                    --base-font-size: 1rem;
-                    --base-font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; /* See https://github.com/system-fonts/modern-font-stacks#monospace-code */
-                    --base-text-color: var(--color-black);
-                    --base-focus-color: var(--color-blue);
-                    --input-padding-block: 0.25ch;
-                    --input-padding-inline: 0.5ch;
-                    --input-border-color: var(--color-black);
-                    --input-border-block-start: 1px solid transparent;
-                    --input-border-block-end: 1px solid var(--input-border-color, black);
-                    --input-border-inline-start: 1px solid transparent;
-                    --input-border-inline-end: 1px solid transparent;
-                    --input-border-radius: 0;
-                    --input-focus-outline: 1px solid var(--base-focus-color);
-                    --input-focus-outline-offset: -1px;
-                    --select-font-size: var(--base-font-size);
-                    --select-padding-block: 0.25ch;
-                    --select-padding-inline: 0.5ch;
-                    --select-border-color: var(--color-black);
-                    --select-background-color: none;
-                    --select-border-radius: 0;
-                    --select-focus-outline: 1px solid var(--base-focus-color);
-                    --select-focus-outline-offset: 0;
-                    --button-font-size: var(--input-font-size, 1rem);
-                    --button-border: none;
-                    --button-background-color: var(--color-black, black);
-                    --button-color: var(--color-white, white);
-                    --button-padding-block: 0.5ch;
-                    --button-padding-inline: 1ch;
-                    --button-border-radius: 0;
-                    --button-focus-outline: 1px solid var(--base-focus-color);
-                    --button-focus-outline-offset: 0;
-                    --table-stripe-color: #F5F5F4;
-                }
-                
-                input, select, button {
-                    all: unset;
-                    font-size: inherit;
-                    font-family: inherit;
-                }
-                
                 input {
-                    padding-block: var(--input-padding-block);
-                    padding-inline: var(--input-padding-inline);
-                    border-block-start: var(--input-border-block-start);
-                    border-block-end: var(--input-border-block-end);
-                    border-inline-start: var(--input-border-inline-start);
-                    border-inline-end: var(--input-border-inline-end);
+                    appearance: var(--input-appearance, textfield);
+                    font-size: var(--input-font-size, revert);
+                    font-family: var(--input-font-family, revert), system-ui;
+                    padding: var(--input-padding-block, revert) var(--input-padding-inline, revert);
+                    border-block-start: var(--input-border-block-start, revert); 
+                    border-block-end: var(--input-border-block-end, revert);
+                    border-inline-start: var(--input-border-inline-start, revert);
+                    border-inline-end: var(--input-border-inline-end, revert); 
                 }
 
                 select {
-                    cursor: pointer;
-                    padding-block: var(--select-padding-block);
-                    padding-inline: var(--select-padding-inline);
-                    border: var(--select-border);
-                    background-color: var(--select-background-color);
-                    border-radius: var(--select-border-radius);
+                    appearance: var(--select-appearance, menulist-button);
+                    font-size: var(--select-font-size, revert);
+                    font-family: var(--select-font-family, revert), system-ui;
+                    padding: var(--select-padding-block) var(--select-padding-inline, revert);
+                    border: var(--select-border, revert);
+                    background-color: var(--select-background-color, revert);
+                    border-radius: var(--select-border-radius, revert);
                 }
                 
                 button {
-                    padding-block: var(--button-padding-block);
-                    padding-inline: var(--button-padding-inline);
-                    background-color: var(--button-background-color);
-                    color: var(--button-color);
-                    border: var(--button-border);
-                    border-radius: var(--button-border-radius);
+                    appearance: var(--button-appearance, button);
+                    font-size: var(--button-font-size, revert);
+                    font-family: var(--button-font-family, revert), system-ui;
+                    padding: var(--button-padding-block) var(--button-padding-inline, revert);
+                    background-color: var(--button-background-color, revert);
+                    color: var(--button-color, revert);
+                    border: var(--button-border, revert);
+                    border-radius: var(--button-border-radius, revert);
                 }
                 
                 input:focus-visible {
-                    outline: var(--input-focus-outline);
-                    outline-offset: var(--input-focus-outline-offset);
+                    outline: var(--input-focus-outline, revert);
+                    outline-offset: var(--input-focus-outline-offset, revert);
                 }
 
                 select:focus-visible {
-                    outline: var(--select-focus-outline);
-                    outline-offset: var(--select-focus-outline-offset);
+                    outline: var(--select-focus-outline, revert);
+                    outline-offset: var(--select-focus-outline-offset, revert);
                 }
 
                 button:focus-visible {
-                    outline: var(--button-focus-outline);
-                    outline-offset: var(--button-focus-outline-offset);
+                    outline: var(--button-focus-outline, revert);
+                    outline-offset: var(--button-focus-outline-offset, revert);
                 }
                 
                 #container {
@@ -101,7 +61,7 @@ class RollHitDice extends HTMLElement {
                     flex-direction: column;
                     gap: 1rem;
                     align-items: center;
-                    font-family: var(--base-font-family);
+                    font-family: var(--base-font-family), system-ui;
                 }
                 
                 form {
@@ -124,7 +84,7 @@ class RollHitDice extends HTMLElement {
                 legend {
                     white-space: nowrap;
                     padding: 0;
-                    font-size: inherit;
+                    font-size: var(--base-font-size, revert);
                     font-weight: bold;
                 }
                 
@@ -146,13 +106,18 @@ class RollHitDice extends HTMLElement {
                 }
                 table#result th, 
                 table#result td {
-                    border: 1px solid var(--color-black);
                     padding: 0.25rem 1ch;
                     text-align: center;
                 }
+                table#result th {
+                    border: var(--table-inline-head-border, revert);
+                }
+                table#result td {
+                    border: var(--table-cell-border, revert);
+                }
                 table#result tbody tr:nth-child(even) th,
                 table#result tbody tr:nth-child(even) td {
-                    background-color: var(--table-stripe-color);
+                    background-color: var(--table-stripe-color, revert);
                 }
                 table#result thead tr:last-child th {
                     min-width: 7ch; /* Magic number */
@@ -222,16 +187,16 @@ class RollHitDice extends HTMLElement {
                     <table id="result">
                         <thead>
                             <tr>
-                                <th part="table-head-inline"></th>
-                                <th part="table-head-inline" colspan="5">Hit Points</th>
+                                <th part="table-inline-head"></th>
+                                <th part="table-inline-head" colspan="5">Hit Points</th>
                             </tr>
                             <tr>
-                                <th part="table-head-inline">Hit Dice Expression</th>
-                                <th part="table-head-inline">Minimum</th>
-                                <th part="table-head-inline">Weak</th>
-                                <th part="table-head-inline">Average</th>
-                                <th part="table-head-inline">Strong</th>
-                                <th part="table-head-inline">Maximum</th>
+                                <th part="table-inline-head">Hit Dice Expression</th>
+                                <th part="table-inline-head">Minimum</th>
+                                <th part="table-inline-head">Weak</th>
+                                <th part="table-inline-head">Average</th>
+                                <th part="table-inline-head">Strong</th>
+                                <th part="table-inline-head">Maximum</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -282,7 +247,7 @@ class RollHitDice extends HTMLElement {
     updateResults(hitDiceExpression, results) {
         const resultsHistoryEntry = `
             <tr>
-                <th class="hit-dice-expression" part="table-head-inline">${hitDiceExpression}</th>
+                <th class="hit-dice-expression" part="table-inline-head">${hitDiceExpression}</th>
                 <td class="hp-value minimum-hp" part="table-cell">${results.minimum}</td>
                 <td class="hp-value weak-hp" part="table-cell">${results.weak}</td>
                 <td class="hp-value average-hp" part="table-cell">${results.average}</td>
