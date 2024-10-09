@@ -49,64 +49,66 @@ npm run serve
 
 ## Styling the component
 
-The form elements used in this component have somewhat opinionated styling in terms of borders and focus states.
+By default, the component uses `revert` on most of its CSS declarations to fall back to the styling applied to its parent component. 
 
-You can tweak these values (and many others) by setting certain custom properties [developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) on `<roll-hit-dice>` in your stylesheet.
+You can tweak these values by setting certain custom properties [developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) on `<roll-hit-dice>` in your stylesheet.
 
 ```
---color-grey
---color-blue
---color-black
---color-white
---base-font-size
 --base-font-family
---base-text-color
---base-focus-color
---input-padding-block
---input-padding-inline
---input-border-color
---input-border-block-start
+--base-font-size
+--button-appearance
+--button-background-color
+--button-border
+--button-border-radius
+--button-color
+--button-focus-outline
+--button-focus-outline-offset
+--button-font-family
+--button-font-size
+--button-padding-block
+--button-padding-inline
+--input-appearance
 --input-border-block-end
---input-border-inline-start
+--input-border-block-start
 --input-border-inline-end
---input-border-radius
+--input-border-inline-start
 --input-focus-outline
 --input-focus-outline-offset
---select-font-size
---select-padding-block
---select-padding-inline
---select-border-color
+--input-font-family
+--input-font-size
+--input-padding-block
+--input-padding-inline
+--select-appearance
 --select-background-color
+--select-border
 --select-border-radius
 --select-focus-outline
 --select-focus-outline-offset
---button-font-size
---button-border
---button-background-color
---button-color
---button-padding-block
---button-padding-inline
---button-border-radius
---button-focus-outline
---button-focus-outline-offset
+--select-font-family
+--select-font-size
+--select-padding-block
+--select-padding-inline
+--table-cell-border
+--table-inline-head-border
 --table-stripe-color
 ```
 
-For example, the inputs have only a bottom border (of `1px`) by default. To extend the border to the whole input and increase the `border-width` to `2px`, you could do the following:
+To set input borders, for example, you could do the following:
 
 ```html
 <head>
     <!-- ... -->
     <style>
         roll-hit-dice {
+            --input-border-color: black;
             --input-border-block-start: 
-                2px solid var(--input-border-color);
+                3px solid var(--input-border-color);
             --input-border-block-end: 
-                2px solid var(--input-border-color);
+                3px solid var(--input-border-color);
             --input-border-inline-start: 
-                2px solid var(--input-border-color);
+                3px solid var(--input-border-color);
             --input-border-inline-end: 
-                2px solid var(--input-border-color);
+                3px solid var(--input-border-color);
         }
     </style>
 </head>
@@ -118,21 +120,6 @@ For example, the inputs have only a bottom border (of `1px`) by default. To exte
 </body>
 ```
 
-Or you (should be able to?) define your own new CSS custom property and use that:
-
-```html
-<style>
-    roll-hit-dice {
-        --input-border: 
-            2px solid var(--input-border-color);
-        --input-border-block-start: var(--input-border);
-        --input-border-block-end: var(--input-border);
-        --input-border-inline-start: var(--input-border);
-        --input-border-inline-end: var(--input-border);
-    }
-</style>
-```
-
 For styling that isn’t covered by the CSS properties, you can pierce the component’s Shadow DOM and target the following elements:
 
 - The dice count `<input>`
@@ -142,21 +129,29 @@ For styling that isn’t covered by the CSS properties, you can pierce the compo
 - `<td>` elements
 - `<th>` elements
 
-For example, to reset all the form elements, `<th>` elements and `<td>` elements in the component to whatever styling would be applied to these elements by your existing stylesheets:
-
 ```html
 <style>
-    roll-hit-dice::part(dice-count-input),
-    roll-hit-dice::part(die-type-select),
-    roll-hit-dice::part(modifier-input),
-    roll-hit-dice::part(submit-button),
-    roll-hit-dice::part(table-cell),
+    roll-hit-dice::part(dice-count-input) {
+        /* Your styling here */
+    }
+    roll-hit-dice::part(die-type-select) {
+        /* Your styling here */
+    }
+    roll-hit-dice::part(modifier-input) {
+        /* Your styling here */
+    }
+    roll-hit-dice::part(submit-button) {
+        /* Your styling here */
+    }
+    roll-hit-dice::part(table-cell) {
+        /* Your styling here */
+    }
     roll-hit-dice::part(table-heading-inline) {
-        all: revert;
+        /* Your styling here */
     }
 </style>
 ```
 
 ### Examples
 
-For more examples, run `npm run serve` and navigate to the `/examples` directory.
+For theming and styling examples, run `npm run serve` and navigate to the `/examples` directory.
